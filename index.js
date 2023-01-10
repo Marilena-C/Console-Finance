@@ -84,32 +84,63 @@ var finances = [
 ['Nov-2016', 795914],
 ['Dec-2016', 60988],
 ['Jan-2017', 138230],
-['Feb-2017', 671099]
+['Feb-2017', 671099] ,
 ];
-//Declare total number of months in the dataset, net amount of profit/ loses, 
-//average of the changes in profit/losses over the entire period
+//Declare total number of months in the dataset
 let totalMonths = finances.length;
-let total = 0;
-let latestTotal = 0;
-var greatestIncrease = 0;
-var greatesDecrease = 9999999
+// Print out the total months in the console
+console.log("Total months: " + totalMonths);
+//Track what the total change in profits are from month to month - Calculate the net amount of Profit/Losses over the entire period
 
-//Total number of months included in the dataset
+var total = 0;
 for (var i = 0; i < finances.length; i++) {
-total += finances[0, ""];
+  total += finances[i][1];
+ }
+  console.log("Total: " + total);
+
+var profitChange = [];
+for (let index = 0; index < finances.length -1; index++) {
+     let currentMonthData = finances[index][1];
+     let nextMonthData = finances[index+1][1];
+      profitChange[index] = nextMonthData - currentMonthData;
+     }
+   // console.log(profitChange);
+
+var totalProfit = 0;
+    for (let i = 0; i< profitChange.length; i++) {
+        totalProfit += profitChange [i];
+    }
+// console.log("Total profit: " + totalProfit);
+ //console.log(nextMonthData, currentMonthData);
+ //console.log("Profit change: " + profitChange);
+
+// //Calculate the average of the changes in profit/losses over the entire period
+var averageChanges = totalProfit/profitChange.length;
+console.log("Average change: " + Math.round(averageChanges*100)/100);
+
+
+//Declare the greatest increase in profits (date and amount) over the entire period
+var greatestProfit = 0;
+var indexMax = 0;
+for (let i = 0; i< profitChange.length; i++) {
+    if (greatestProfit < profitChange[i]){
+        greatestProfit = profitChange[i];
+        indexMax = i;
+    } 
 }
+console.log("Greatest profit : " + finances[indexMax+1][0] + ": $" + greatestProfit);
 
-//Calculate the average of the changes in Profit/Losses over the entire period.
-//Total/Number of months
-//Greatesc increase (current month - previous month)
+//Declare the greatest decrease in losses (date and amount) over the entire period, 
+var greatestLoses = 0;
+var indexMin = 0;
+for (let i = 0; i< profitChange.length; i++) {
+    if (greatestLoses > profitChange[i]){
+        greatestLoses = profitChange[i];
+        indexMin = i;
+    } 
+}
+console.log("Greatest losses :" + finances[indexMin+1][0] + ": $" +  greatestLoses);
 
 
-//Greatesc derease (current month - previous month)
 
 
-
-//Print data to console
-console.log(finances.length);
-console.log(totalNet);
-console.log(greatestIncrease);
-console.log(greatesDecrease);
