@@ -24,8 +24,9 @@ The greatest decrease in losses (date and amount) over the entire period.
  * The URL of the  the deployed application: https://marilena-c.github.io/Console-Finance/
 
 * The URL of the GitHub repository that contains my code: https://github.com/Marilena-C/Console-Finance
+
 ## Screenshots
 Terminal output: 
 https://github.com/Marilena-C/Console-Finance/blob/main/Images/Screenshot_Terminal_Output.jpg
-
 Webpage Console: https://github.com/Marilena-C/Console-Finance/blob/main/Images/Screenshot_Webpage_Terminal.jpg
+Repository: https://github.com/Marilena-C/Console-Finance/blob/main/Images/Screenshot_gitHubPage.jpg
